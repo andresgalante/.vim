@@ -10,11 +10,8 @@ set nocompatible
 set encoding=utf-8
 
 
-" Set the dimmed colour for Limelight
-" let g:limelight_conceal_ctermfg = 'LightGrey'
 
 " Starts Vundle
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -35,7 +32,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'nathanaelkane/vim-indent-guides'
+" Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine'
 Plugin 'othree/html5.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'tpope/vim-commentary'
@@ -44,6 +42,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " ends Vundle
 
+let g:indentLine_char = '┆'
 
 " Syntax highlighting
 
@@ -55,14 +54,19 @@ set t_Co=256
 set background=dark
 colorscheme solarized
 
+
+
 " Emmet setting
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 
+
 "CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_show_hidden = 1
+
+
 
 " Airline
 let g:airline#extensions#bufferline#enabled = 1
@@ -74,9 +78,11 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " Removes the path of the files
 let g:airline#extensions#tabline#fnamemod = ':t'
 
-let g:airline_theme='powerlineish'
 let g:airline_right_sep=''
 let g:airline_section_z=''
+let g:airline_theme='powerlineish'
+
+
 
 " NERDTree
 
@@ -89,10 +95,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let NERDTreeShowHidden=1
 
 
+
 " Set relevant filetypes
-" au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.md set filetype=markdown
 au BufRead,BufNewFile *.hbs set filetype=html
+
 
 
 " Buffer management
@@ -102,9 +109,10 @@ set splitright
 set splitbelow
 " Set the working directory to wherever the open file lives (can be problematic)
 set autochdir
-" set path+=**
+set path+=**
 " Show file options above the command line
 set wildmenu
+
 
 
 " Text management
@@ -122,16 +130,13 @@ set nowrap
 " Spell-check always on
 set spell
 " Underscores denote words
-set iskeyword-=_
+" set iskeyword-=_
 " No extra spaces when joining lines
 set nojoinspaces
 " Interpret numbers with leading zeroes as decimal, not octal
 set nrformats=
 
-" Sets soft wrapping
-" set breakindent
-
-" refreshes buffers when you do git merge  or change fils with git
+" refreshes buffers when you do git merge  or change files with git
 set autoread
 
 
@@ -152,7 +157,7 @@ set backspace=2
 " Visual decorations
 
 " Show status line
-set laststatus=2
+" set laststatus=2
 " Show what mode you're currently in
 set showmode
 " Show what commands you're typing
@@ -166,6 +171,7 @@ set title
 " Show invisibles
 set list
 set listchars=tab:»-,trail:•
+
 " Set relative line numbers...
 set relativenumber
 " ...but absolute numbers on the current line
@@ -186,7 +192,7 @@ set visualbell
 " Don't keep results highlighted after searching...
 set nohlsearch
 " ...just highlight as we type
-" set incsearch
+set incsearch
 " Ignore case when searching...
 set ignorecase
 " ...except if we input a capital letter
@@ -196,15 +202,13 @@ set smartcase
 
 " Abbreviations and auto-completions
 
-" lipsum<Tab> drops some Lorem ipsum text into the document
-iab lipsum Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+" lorem<Tab> drops some Lorem ipsum text into the document
+iab lorem Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+
+
 
 " Key mappings
 
-" jj to throw you into normal mode from insert mode
-" inoremap jj <esc>
-" jk to throw you into normal mode from insert mode
-" inoremap jk <esc>
 " Disable arrow keys (hardcore)
   " map  <up>    <nop>
   " imap <up>    <nop>
@@ -219,7 +223,6 @@ iab lipsum Pellentesque habitant morbi tristique senectus et netus et malesuada 
 "  nnoremap <Up> :echoe "Use k"<CR>
 "  nnoremap <Down> :echoe "Use j"<CR>
 
-" let mapleader = ","
 
 "  Set clipboard to unname so I can yy and paste in another app like Atom
 set clipboard=unnamed
@@ -238,9 +241,10 @@ set ttymouse=xterm2
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 
+" Comment line
 map <Leader>/ gc$<ESC>
 
-" Oprns ctrl P
+" Opens ctrl P
 nnoremap <Leader>o :CtrlP<CR>
 
 " Move around buffers
@@ -266,9 +270,4 @@ nnoremap <leader><left> <C-W><C-H>
 " Opens and source vimrc
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-
-
-
-
-
 
