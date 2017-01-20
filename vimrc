@@ -24,7 +24,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
+Plugin 'crusoexia/vim-monokai'
 Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
@@ -51,8 +52,9 @@ syntax enable
 " 256 colours please
 set t_Co=256
 " Dark solarized scheme
-set background=dark
-colorscheme solarized
+" set background=dark
+" colorscheme solarized
+colorscheme monokai
 
 
 
@@ -129,6 +131,9 @@ set shiftround
 set nowrap
 " Spell-check always on
 set spell
+" underlines spelling errors
+hi clear SpellBad
+hi SpellBad cterm=undercurl
 " Underscores denote words
 " set iskeyword-=_
 " No extra spaces when joining lines
