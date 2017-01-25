@@ -38,14 +38,16 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'othree/html5.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'tpope/vim-commentary'
+" Plugin 'Valloric/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " ends Vundle
 
-let g:indentLine_char = '┆'
+let g:indentLine_char = '│'
+let g:indentLine_color_term = 239
 
-" Syntax highlighting
+" Syntax highlighting"
 
 " Enable syntax highighting
 syntax enable
@@ -256,6 +258,9 @@ nnoremap <Leader>o :CtrlP<CR>
 nnoremap <Leader>b :bp<CR>
 nnoremap <Leader>f :bn<CR>
 
+" Close buffer without closing the window
+nmap <leader>d :bprevious<CR>:bdelete #<CR>
+
 " Insert lines, I am so happy with this one
 map <Enter> o<ESC>
 
@@ -275,4 +280,5 @@ nnoremap <leader><left> <C-W><C-H>
 " Opens and source vimrc
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
+
 
