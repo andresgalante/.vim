@@ -38,6 +38,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'othree/html5.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'tpope/vim-commentary'
+Plugin 'Valloric/MatchTagAlways'
 " Plugin 'Valloric/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -57,7 +58,6 @@ set t_Co=256
 " set background=dark
 " colorscheme solarized
 colorscheme monokai
-
 
 
 " Emmet setting
@@ -281,4 +281,9 @@ nnoremap <leader><left> <C-W><C-H>
 nnoremap <leader>ev :split $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+" Removes indentation, use this to paste something from outside megatron
+set pastetoggle=<F5>
+
+" inserts a single character space
+" nmap <space> i_<esc>r
 
